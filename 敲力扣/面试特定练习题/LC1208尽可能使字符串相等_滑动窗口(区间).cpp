@@ -38,6 +38,19 @@ public:
 //            sum-=cnt[left];
 //            left++;
 //        }
+		
+		//改成这样就行了 
+//		while(left<len){
+//            while(right<len){
+//                if(sum+cnt[right]<=maxCost)
+//                    sum+=cnt[right++];
+//                else
+//                    break;
+//            }
+//            ans=max(ans,right-left);
+//            sum-=cnt[left];
+//            left++;
+//        }
         return ans;
     }
 };
