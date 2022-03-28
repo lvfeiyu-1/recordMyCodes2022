@@ -1,0 +1,58 @@
+#include<iostream>
+#include<string>
+#include<vector>
+using namespace std;
+
+//本质上就是排除法，把所有不符合题意的结果全都排除掉
+class Solution {
+    vector<string> ans;
+    string myS;
+    int len;
+public:
+    void DFS(int low, int index, string path) {
+        if (index == 4) {
+            if (low == len)
+                ans.emplace_back(path);
+            return;
+        }
+        if (index)
+            path += '.';
+        for (int i = low; i < len && i - low < 3 && low + (4 - index) <= len && low + (4 - index) * 3 >= len; i++) {
+            if (i - low == 1 && path[path.size() - 1] == '0')
+                return;
+            else if (i - low == 2) {
+                if (path[path.size() - 2] > '2')
+                    return;
+                else if (path[path.size() - 2] == '2') {
+                    if (path[path.size() - 1] > '5')
+                        return;
+                    if (path[path.size() - 1] == '5' && myS[i] > '5')
+                        return;
+                }
+            }
+            path += myS[i];
+            DFS(i + 1, index + 1, path);
+        }
+        return;
+    }
+
+    vector<string> restoreIpAddresses(string s) {
+        if (s.size() < 4 || s.size() > 12)
+            return {};
+        len = s.size();
+        myS = s;
+        DFS(0, 0, {});
+        return ans;
+    }
+};
+
+int main() {
+    string s;
+    cin>>s;
+    Solution sol;
+    vector<string> ans=sol.restoreIpAddresses(s);
+    for(auto& a:ans)
+        cout<<a<<" ";
+    cout<<endl;
+    return 0;
+}
