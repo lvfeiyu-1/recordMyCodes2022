@@ -3,7 +3,7 @@
 #include<queue>
 using namespace std;
 
-//æˆ‘è‡ªå·±å†™çš„æ‹“æ‰‘æ’åºï¼Œ42/44ï¼Œæœ€åæ—¶é—´è¶…é™äº†
+//ÎÒ×Ô¼ºĞ´µÄÍØÆËÅÅĞò£¬42/44£¬×îºóÊ±¼ä³¬ÏŞÁË
 class Solution2 {
 public:
     int **adj;
@@ -33,7 +33,7 @@ public:
 
     vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
         int m=prerequisites.size();
-        //int n=prerequisites[0].size(); //ä¸€å®šæ˜¯2
+        //int n=prerequisites[0].size(); //Ò»¶¨ÊÇ2
 
         adj=new int*[numCourses+2];
         for(int i=0;i<numCourses+2;i++)
@@ -70,9 +70,9 @@ public:
 };
 
 
-//æ‹“æ‰‘æ’åºï¼Œå¹¿åº¦ä¼˜å…ˆéå†
-//æ‰§è¡Œç”¨æ—¶ï¼š88 ms, åœ¨æ‰€æœ‰ C++ æäº¤ä¸­å‡»è´¥äº†5.24%çš„ç”¨æˆ·
-//å†…å­˜æ¶ˆè€—ï¼š79.8 MB, åœ¨æ‰€æœ‰ C++ æäº¤ä¸­å‡»è´¥äº†5.01%çš„ç”¨æˆ·
+//ÍØÆËÅÅĞò£¬¹ã¶ÈÓÅÏÈ±éÀú
+//Ö´ĞĞÓÃÊ±£º88 ms, ÔÚËùÓĞ C++ Ìá½»ÖĞ»÷°ÜÁË5.24%µÄÓÃ»§
+//ÄÚ´æÏûºÄ£º79.8 MB, ÔÚËùÓĞ C++ Ìá½»ÖĞ»÷°ÜÁË5.01%µÄÓÃ»§
 class Solution {
 public:
     int **adj;
@@ -83,8 +83,7 @@ public:
 
     vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
         int m=prerequisites.size();
-        //int n=prerequisites[0].size(); //ä¸€å®šæ˜¯2
-
+        //int n=prerequisites[0].size();  //Ò»¶¨ÊÇ2
         adj=new int*[numCourses+2];
         for(int i=0;i<numCourses+2;i++)
             adj[i]=new int[numCourses+2];
@@ -127,6 +126,70 @@ public:
             if(ans.size()!=numCourses)
                 return {};
             return ans;
+    }
+};
+
+// ÓÃvectorÍêÈ«¿ÉÒÔ´úÌæÒ»Î¬»ò¶àÎ¬Êı×é
+class Solution1 {
+public:
+    //int **adj;
+    //int *Indegree;
+    //int *visited;
+    queue<int> q;
+    vector<int> ans;
+
+    vector<int> findOrder(int numCourses, vector<vector<int>> &prerequisites) {
+        int m = prerequisites.size();
+        //int n=prerequisites[0].size(); //Ò»¶¨ÊÇ2
+
+        //adj = new int *[numCourses + 2];
+        //for (int i = 0; i < numCourses + 2; i++)
+        //adj[i] = new int[numCourses + 2];
+
+        //ÊÂÊµÖ¤Ã÷£¬ÓÃvectorÍêÈ«¿ÉÒÔ´úÌæÒ»Î¬»ò¶àÎ¬Êı×é£¬¶øÇÒÀíÂÛÉÏ»á¸ü¿ì
+        vector<vector<int>> adj(numCourses + 2, vector<int>(numCourses + 2, 0));
+
+        vector<int> Indegree(numCourses+2,0);
+
+        vector<int> visited(numCourses+2,0);
+        //for (int i = 0; i < numCourses + 2; i++)
+        //for (int j = 0; j < numCourses + 2; j++)
+        //adj[i][j] = 0;
+
+        //Indegree = new int[numCourses + 2];
+        //for (int i = 0; i < numCourses + 2; ++i)
+        //Indegree[i] = 0;
+
+        //visited = new int[numCourses + 2];
+        //for (int i = 0; i < numCourses + 2; ++i)
+        //visited[i] = 0;
+
+        for (int i = 0; i < m; i++) {
+            adj[prerequisites[i][1]][prerequisites[i][0]] = 1;
+            Indegree[prerequisites[i][0]]++;
+        }
+
+        for (int i = 0; i < numCourses; i++)
+            if (Indegree[i] == 0)
+                q.emplace(i);
+
+        while (!q.empty()) {
+            int tmp = q.front();
+            q.pop();
+            ans.emplace_back(tmp);
+            for (int i = 0; i < numCourses; ++i) {
+                if (adj[tmp][i]) {
+                    adj[tmp][i] = 0;
+                    Indegree[i]--;
+                    if (Indegree[i] == 0)
+                        q.emplace(i);
+                }
+            }
+        }
+
+        if (ans.size() != numCourses)
+            return {};
+        return ans;
     }
 };
 
