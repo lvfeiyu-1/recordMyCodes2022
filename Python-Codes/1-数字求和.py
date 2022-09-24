@@ -2,6 +2,9 @@
 num1=input('输入第一个数字：')
 num2=input('输入第二个数字：')
 
+# 使用了内置函数 input() 来获取用户的输入，
+# input() 返回一个字符串，所以我们需要使用 float() 方法将字符串转换为数字。
+
 #求和
 sum=float(num1)+float(num2)
 
