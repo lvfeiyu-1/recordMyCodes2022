@@ -59,3 +59,5 @@ map() 会根据提供的函数对指定序列做映射。第一个参数 functio
 ￥<br>
 
 
+# python输入二维数组
+举例：dp=[[0]*MAXN for i in range(MAXN+1)]<br>
