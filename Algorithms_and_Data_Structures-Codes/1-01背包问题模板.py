@@ -1,0 +1,5 @@
+MAXN=1003
+dp=[[0]*MAXN,[0]*MAXN]
+V=[0]*MAXN
+W=[0]*MAXN
+
