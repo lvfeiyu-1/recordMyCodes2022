@@ -60,4 +60,95 @@ map() 会根据提供的函数对指定序列做映射。第一个参数 functio
 
 
 # python输入二维数组
+下面是不导包的情况<br>
 举例：dp=[[0]*MAXN for i in range(MAXN+1)]<br>
+
+
+# Python中的输入：sys.stdin.readline()与input()
+1、sys.stdin.readline() , input()的区别：<br>
+<br>
+首先 sys.stdin.readline() 和 input()都是以换行作为结束输入的标志，二者的区别就在于：<br>
+sys.stdin.readline()会将标准输入全部获取，包括末尾的'\n'，而input()会把‘\n’忽略。<br>
+<br>
+import sys<br>
+<br>
+a = sys.stdin.readline()<br>
+print(a, type(a))<br>
+b = input()<br>
+print(a)<br>
+print(b)<br>
+print(len(a), len(b))<br>
+<br>
+
+-1 2 3          # input,被sys.stdin.readline()读取.<br>
+-1 2 3          # print(a, type(a)),显然换行符'\n'被读取了.不然<class 'str'>和-1 2 3 应该在同一行输出.<br>
+ <class 'str'><br>
+-1 2 3          # input,被input()读取.<br>
+-1 2 3          # print(a),‘\n’被读取.<br>
+<br>
+-1 2 3          # print(b).<br>
+7 6             # print(len(a), len(b)),空格3 + 字符3 + 换行符1 = 7.<br>
+<br>
+可以用sys.stdin.readline( ).strip( )去掉末尾的换行符。<br>
+
+
+2、sys.stdin.readline(),sys.stdin.readlines(),sys.stdin.read()的区别<br>
+显然之前readline()的代码由于换行符作为输入结束，所以是单行输入。如果想实现多行输入，需要用到while循环，win用control+Z(可以松手，也可以不松手),然后回车结束输入。<br>
+import sys<br>
+<br>
+lines = []<br>
+while True:<br>
+    line = sys.stdin.readline().strip()<br>
+    if not line:<br>
+        break<br>
+    lines.append(line)<br>
+print(lines)<br>
+<br>
+输入输出：<br>
+-1<br>
+2<br>
+3<br>
+(control+z+enter)<br>
+#output<br>
+['-1', '2', '3']<br>
+<br>
+<br>
+而sys.stdin.readlines()可以一次性读取多行数据，输出是含有str的list，会读出换行符等。<br>
+同样的，control+D（Linus下）结束输入。<br>
+<br>
+import sys<br>
+lines = sys.stdin.readlines()<br>
+# 去除换行符,output为['-1', '2', '3'].<br>
+# lines = [line.strip() for line in lines] <br>
+print(line)<br>
+<br>
+#input<br>
+-1<br>
+2<br>
+3<br>
+#output<br>
+['-1\n', '2\n', '3\n']<br>
+<br>
+<br>
+sys.stdin.read()也是多行读取，输出为str，不读换行符，换行符直接起作用。最后用control+D结束输入，其实是输入了一个空字符‘’，也会被读出来。<br>
+<br>
+import sys<br>
+lines = sys.stdin.read()<br>
+print(lines, type(lines))<br>
+<br>
+#input<br>
+-1<br>
+2<br>
+3<br>
+#output<br>
+-1<br>
+2<br>
+3<br>
+ <class 'str'><br>
+<br>
+#补充<br>
+lines = lines.split('\n')<br>
+<br>
+#output<br>
+['-1', '2', '3', ''] <class 'list'><br>
+
