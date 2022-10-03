@@ -118,8 +118,8 @@ print(lines)<br>
 <br>
 import sys<br>
 lines = sys.stdin.readlines()<br>
-# 去除换行符,output为['-1', '2', '3'].<br>
-# lines = [line.strip() for line in lines] <br>
+#去除换行符,output为['-1', '2', '3'].<br>
+#lines = [line.strip() for line in lines] <br>
 print(line)<br>
 <br>
 #input<br>
