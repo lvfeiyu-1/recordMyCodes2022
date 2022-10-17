@@ -196,40 +196,40 @@ print(a)<br>
 a = [2, 1, 5, 4]<br>
 b = sorted(a)<br>
 print(a)<br>
-# [2, 1, 5, 4]<br>
+##[2, 1, 5, 4]<br>
 print(b)<br>
-# [1, 2, 4, 5]<br>
-# 这里我们可以发现a的值没有变化，但是b的值变的有序了<br>
+##[1, 2, 4, 5]<br>
+##这里我们可以发现a的值没有变化，但是b的值变的有序了<br>
 <br>
 (5) sorted——最简单的使用<br>
 a = [2, 1, 5, 4]<br>
-#reverse参数，对列表进行排序，True为从大到小排列， Fasle则为从小到大，默认为False<br>
+##reverse参数，对列表进行排序，True为从大到小排列， Fasle则为从小到大，默认为False<br>
 b = sorted(a)<br>
 print(b)<br>
-#[1, 2, 4, 5]<br>
+##[1, 2, 4, 5]<br>
 b = sorted(a, reverse=True)<br>
 print(b)<br>
-#[5, 4, 2, 1]<br>
+##[5, 4, 2, 1]<br>
 <br>
 (6) sorted——使用key值进行排序<br>
 a = [("a", 2), ("c", 1), ("b", 5), ("d", 4)]<br>
-# 以第一个值进行排序<br>
+##以第一个值进行排序<br>
 b = sorted(a, key=lambda x: x[0])<br>
 print(b)<br>
-# [('a', 2), ('b', 5), ('c', 1), ('d', 4)]<br>
-# 以第二个值进行排序<br>
+##[('a', 2), ('b', 5), ('c', 1), ('d', 4)]<br>
+##以第二个值进行排序<br>
 c = sorted(a, key=lambda x: x[1])<br>
 print(c)<br>
-# [('c', 1), ('a', 2), ('d', 4), ('b', 5)]<br>
+##[('c', 1), ('a', 2), ('d', 4), ('b', 5)]<br>
 <br>
 (7) sorted——综合使用<br>
 a = [("a", 2), ("c", 1), ("b", 5), ("d", 4)]<br>
 b = sorted(a, key=lambda x: x[1])<br>
 print(b)<br>
-# [('c', 1), ('a', 2), ('d', 4), ('b', 5)]<br>
+##[('c', 1), ('a', 2), ('d', 4), ('b', 5)]<br>
 c = sorted(a, key=lambda x: x[1], reverse=True)<br>
 print(c)<br>
-# [('b', 5), ('d', 4), ('a', 2), ('c', 1)]<br>
+##[('b', 5), ('d', 4), ('a', 2), ('c', 1)]<br>
 <br>
 
 
