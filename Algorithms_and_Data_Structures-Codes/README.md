@@ -164,13 +164,13 @@ lines = lines.split('\n')<br>
 2.代码举例<br>
 (1) sort——最简单的使用<br>
 a = [2, 1, 5, 4]<br>
-# reverse参数，对列表进行排序，True为从大到小排列， Fasle则为从小到大，默认为False<br>
+##reverse参数，对列表进行排序，True为从大到小排列， Fasle则为从小到大，默认为False<br>
 a.sort()<br>
 print(a)<br>
-# [1, 2, 4, 5]<br>
+##[1, 2, 4, 5]<br>
 a.sort(reverse=True)<br>
 print(a)<br>
-# [5, 4, 2, 1]<br>
+##[5, 4, 2, 1]<br>
 <br>
 (2) sort——使用key值进行排序<br>
 a = [("a", 2), ("b", 1), ("c", 5), ("d", 4)]<br>
