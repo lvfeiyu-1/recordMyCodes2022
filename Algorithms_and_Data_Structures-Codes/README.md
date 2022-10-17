@@ -187,10 +187,10 @@ print(a)<br>
 a = [("a", 2), ("c", 1), ("b", 5), ("d", 4)]<br>
 a.sort(key=lambda x: x[1])<br>
 print(a)<br>
-# [('c', 1), ('a', 2), ('d', 4), ('b', 5)]<br>
+##[('c', 1), ('a', 2), ('d', 4), ('b', 5)]<br>
 a.sort(key=lambda x: x[1], reverse=True)<br>
 print(a)<br>
-# [('b', 5), ('d', 4), ('a', 2), ('c', 1)]<br>
+##[('b', 5), ('d', 4), ('a', 2), ('c', 1)]<br>
 <br>
 (4) sorted——不会改变原列表的顺序<br>
 a = [2, 1, 5, 4]<br>
