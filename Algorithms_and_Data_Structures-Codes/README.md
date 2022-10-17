@@ -152,3 +152,87 @@ lines = lines.split('\n')<br>
 #output<br>
 ['-1', '2', '3', ''] <class 'list'><br>
 
+
+# python中sort()与sorted()的区别
+1.主要区别<br>
+(1) sort 是应用在 list 上的方法，而sorted 可以对所有可迭代的对象进行排序操作；<br>
+(2) sort是对原有列表进行操作，而sorted返回的是一个新的可迭代对象，不会改变原来的对象；<br>
+(3) sort使用方法为list.sort()， 而sorted的使用方法为sorted(list)<br>
+(4) sorted语法:sorted(iterable=None,key=None,reverse=False)<br>
+(5) sort语法:list.sort(key=None,reverse=False)，两个参数跟上面sorted的参数一样。在使用的时候要注意的是list.sort()没有返回值，也就是返回值为None。<br>
+<br>
+2.代码举例<br>
+(1) sort——最简单的使用<br>
+a = [2, 1, 5, 4]<br>
+# reverse参数，对列表进行排序，True为从大到小排列， Fasle则为从小到大，默认为False<br>
+a.sort()<br>
+print(a)<br>
+# [1, 2, 4, 5]<br>
+a.sort(reverse=True)<br>
+print(a)<br>
+# [5, 4, 2, 1]<br>
+<br>
+(2) sort——使用key值进行排序<br>
+a = [("a", 2), ("b", 1), ("c", 5), ("d", 4)]<br>
+a.sort()<br>
+print(a)<br>
+# [('a', 2), ('b', 1), ('c', 5), ('d', 4)]<br>
+# 对于上面的类型，我们使用普通的排序方法，返回的值和原来一样，排序并没有生效，所有这里我们介绍另一种方法，key<br>
+a = [("a", 2), ("c", 1), ("b", 5), ("d", 4)]<br>
+a.sort(key=lambda x: x[1])<br>
+print(a)<br>
+# [('c', 1), ('a', 2), ('d', 4), ('b', 5)]<br>
+<br>
+(3) sort——综合使用<br>
+a = [("a", 2), ("c", 1), ("b", 5), ("d", 4)]<br>
+a.sort(key=lambda x: x[1])<br>
+print(a)<br>
+# [('c', 1), ('a', 2), ('d', 4), ('b', 5)]<br>
+a.sort(key=lambda x: x[1], reverse=True)<br>
+print(a)<br>
+# [('b', 5), ('d', 4), ('a', 2), ('c', 1)]<br>
+<br>
+(4) sorted——不会改变原列表的顺序<br>
+a = [2, 1, 5, 4]<br>
+b = sorted(a)<br>
+print(a)<br>
+# [2, 1, 5, 4]<br>
+print(b)<br>
+# [1, 2, 4, 5]<br>
+# 这里我们可以发现a的值没有变化，但是b的值变的有序了<br>
+<br>
+(5) sorted——最简单的使用<br>
+a = [2, 1, 5, 4]<br>
+# reverse参数，对列表进行排序，True为从大到小排列， Fasle则为从小到大，默认为False<br>
+b = sorted(a)<br>
+print(b)<br>
+# [1, 2, 4, 5]<br>
+b = sorted(a, reverse=True)<br>
+print(b)<br>
+# [5, 4, 2, 1]<br>
+<br>
+(6) sorted——使用key值进行排序<br>
+a = [("a", 2), ("c", 1), ("b", 5), ("d", 4)]<br>
+# 以第一个值进行排序<br>
+b = sorted(a, key=lambda x: x[0])<br>
+print(b)<br>
+# [('a', 2), ('b', 5), ('c', 1), ('d', 4)]<br>
+# 以第二个值进行排序<br>
+c = sorted(a, key=lambda x: x[1])<br>
+print(c)<br>
+# [('c', 1), ('a', 2), ('d', 4), ('b', 5)]<br>
+<br>
+(7) sorted——综合使用<br>
+a = [("a", 2), ("c", 1), ("b", 5), ("d", 4)]<br>
+b = sorted(a, key=lambda x: x[1])<br>
+print(b)<br>
+# [('c', 1), ('a', 2), ('d', 4), ('b', 5)]<br>
+c = sorted(a, key=lambda x: x[1], reverse=True)<br>
+print(c)<br>
+# [('b', 5), ('d', 4), ('a', 2), ('c', 1)]<br>
+<br>
+
+
+
+
+

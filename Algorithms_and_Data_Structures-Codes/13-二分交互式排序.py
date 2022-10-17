@@ -4,7 +4,7 @@
 # @return bool
 # return bool means whether a is less than b.
 
-def compare(a:int,b:int):
+def compare(a:int,b:int): # 这个函数是废的，为了让代码不报错
     return a>b
 
 class Solution(object):
