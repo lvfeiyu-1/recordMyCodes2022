@@ -11,6 +11,5 @@ for p in permutations(str):
   print("".join(p))
 
 '''
-permutations只能对字符串、元组、列表、字典进行排列组合,不能对数字
-所以你看到了上面对数字进行排列组合的时候,将数字迭代器转化为字符串
+由于join的原因,第一个print需要把数字转化为字符,因为join只能把字符连接起来
 '''
