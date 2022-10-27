@@ -252,41 +252,41 @@ peek() 返回栈顶元素<br>
 is_empty() 判断栈是否为空<br>
 size() 返回栈的元素个数<br>
 <br>
-代码如下：<br>
+代码如下：
 <pre>
-class Stack(object):<br>
-    """栈"""<br>
-    def __init__(self):<br>
-         self.items = []<br>
-<br>
-    def is_empty(self):<br>
-        """判断是否为空"""<br>
-        return self.items == []<br>
-<br>
-    def push(self, item):<br>
-        """加入元素"""<br>
-        self.items.append(item)<br>
-<br>
-    def pop(self):<br>
-        """弹出元素"""<br>
-        return self.items.pop()<br>
-<br>
-    def peek(self):<br>
-        """返回栈顶元素"""<br>
-        return self.items[len(self.items)-1]<br>
-<br>
-    def size(self):<br>
-        """返回栈的大小"""<br>
-        return len(self.items)<br>
-if __name__ == "__main__":<br>
-    stack = Stack()<br>
-    stack.push("hello")<br>
-    stack.push("world")<br>
-    stack.push("yake1965")<br>
-    print(stack.size())<br>
-    print(stack.peek())<br>
-    print(stack.pop())<br>
-    print(stack.pop())<br>
-    print(stack.pop())<br>
+class Stack(object):
+    """栈"""
+    def __init__(self):
+         self.items = []
+
+    def is_empty(self):
+        """判断是否为空""
+        return self.items == []
+
+    def push(self, item):
+        """加入元素"""
+        self.items.append(item)
+
+    def pop(self):
+        """弹出元素"""
+        return self.items.pop()
+
+    def peek(self):
+        """返回栈顶元素"""
+        return self.items[len(self.items)-1]
+
+    def size(self):
+        """返回栈的大小"""
+        return len(self.items)
+if __name__ == "__main__":
+    stack = Stack()
+    stack.push("hello")
+    stack.push("world")
+    stack.push("yake1965")
+    print(stack.size())
+    print(stack.peek())
+    print(stack.pop())
+    print(stack.pop())
+    print(stack.pop())
 </pre>
 
