@@ -22,6 +22,8 @@
 
 from queue import Queue
 
+# q=Queue()   # 这样子定义是无限长度的
+
 q=Queue(4)
 
 q.put(1)

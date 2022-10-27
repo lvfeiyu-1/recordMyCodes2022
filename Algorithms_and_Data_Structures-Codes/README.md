@@ -304,6 +304,8 @@ from queue import Queue
 '''最多接收3个数据,设置队列长度'''
 q = Queue(3)
 
+'''这样子定义的话就是无限队列长度: q=Queue()'''
+
 ''' put 向队列中添加数据 '''
 q.put(1)
 q.put(2)
@@ -406,7 +408,7 @@ Python提供的所有队列类型：<br>
 除了上述提到的队列与双端队列,还有两个用的比较少的:后进先出队列与优先级队列<br>
 
 
-# python中定义（声明）结构体
+# python中定义（声明）结构体(验证过了，很好用)
 前言：<br>
 在Python中并无像C/C++那样的结构体类型，但是由于Python是用C编写而来的，很多东西可以互通。<br>
 Python是有struct模块，但并非是用于处理一般结构体的，并且使用起来也比较麻烦。<br>
@@ -448,3 +450,20 @@ a->datalen = strlen(a->data);
 a->datatype = 1;
 </pre>
 
+
+# Python IDLE常用快捷键
+<pre>
+F1	    打开Python帮助文档	    Python文件窗口和Shell 均可用
+Alt+P	浏览历史命令（上一条）	仅 Python Shell 窗口可用
+Alt+N	浏览历史命令（下一条）	仅 Python Shell 窗口可用
+Alt+/	自动补全前面曾经出现过的单词，如果之前有多个单词具有相同前缀，可以连续按下该快捷键，在多个单词中间循环选择	Python 文件窗口和 Shell 窗口均可用
+Alt+3	注释代码块	仅 Python 文件窗口可用
+Alt+4	取消代码块注释	仅 Python 文件窗口可用
+Alt+g	转到某一行	仅 Python 文件窗口可用
+Ctrl+Z	撤销一步操作	Python 文件窗口和 Shell 窗口均可用
+Ctrl+Shift+Z	恢复上—次的撤销操作	Python 文件窗口和 Shell 窗口均可用
+Ctrl+S	保存文件	Python 文件窗口和 Shell 窗口均可用
+Ctrl+]	缩进代码块	仅 Python 文件窗口可用
+Ctrl+[	取消代码块缩进	仅 Python 文件窗口可用
+Ctrl+F6	重新启动 Python Shell	仅 Python Shell 窗口可用
+</pre>
