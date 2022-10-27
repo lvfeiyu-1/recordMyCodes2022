@@ -233,6 +233,60 @@ print(c)<br>
 <br>
 
 
-
-
+# python堆栈
+其实用列表实现即可<br>
+栈（stack 堆栈），是一种容器，可存入数据元素、访问元素、删除元素，它的特点在于只能允许在容器的一端（称为栈顶端指标 top）进行加入数据（push）和输出数据（pop）的运算。没有了位置概念，保证任何时候可以访问、删除的元素都是此前最后存入的那个元素，确定了一种默认的访问顺序。<br>
+<br>
+补充一些题外话：
+1、栈区（stack）— 由编译器自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。<br>
+2、堆区（heap） — 一般由程序员分配释放， 若程序员不释放，程序结束时可能由OS回收 。注意它与数据结构中的堆是两回事，分配方式倒是类似于链表。<br>
+3、全局区（静态区）（static）—，全局变量和静态变量的存储是放在一块的，初始化的全局变量和静态变量在一块区域，未初始化的全局变量和未初始化的静态变量在相邻的另一块区域。 - 程序结束后有系统释放 。<br>
+4、文字常量区—常量字符串就是放在这里的。 程序结束后由系统释放。程序代码区—存放函数体的二进制代码。<br>
+<br>
+栈结构实现: 栈可以用顺序表实现，也可以用链表实现。<br>
+栈的操作:<br>
+Stack() 创建一个新的空栈<br>
+push(item) 添加一个新的元素item到栈顶<br>
+pop() 弹出栈顶元素<br>
+peek() 返回栈顶元素<br>
+is_empty() 判断栈是否为空<br>
+size() 返回栈的元素个数<br>
+<br>
+代码如下：<br>
+<pre>
+class Stack(object):<br>
+    """栈"""<br>
+    def __init__(self):<br>
+         self.items = []<br>
+<br>
+    def is_empty(self):<br>
+        """判断是否为空"""<br>
+        return self.items == []<br>
+<br>
+    def push(self, item):<br>
+        """加入元素"""<br>
+        self.items.append(item)<br>
+<br>
+    def pop(self):<br>
+        """弹出元素"""<br>
+        return self.items.pop()<br>
+<br>
+    def peek(self):<br>
+        """返回栈顶元素"""<br>
+        return self.items[len(self.items)-1]<br>
+<br>
+    def size(self):<br>
+        """返回栈的大小"""<br>
+        return len(self.items)<br>
+if __name__ == "__main__":<br>
+    stack = Stack()<br>
+    stack.push("hello")<br>
+    stack.push("world")<br>
+    stack.push("yake1965")<br>
+    print(stack.size())<br>
+    print(stack.peek())<br>
+    print(stack.pop())<br>
+    print(stack.pop())<br>
+    print(stack.pop())<br>
+</pre>
 
