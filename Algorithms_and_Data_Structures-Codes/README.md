@@ -387,7 +387,7 @@ deque([3, 4, 5, 6, 7, 8, 9, 11, 22, 33], maxlen=10)
 >>> dq.extendleft([10, 20, 30, 40]) ➎
 >>> dq
 deque([40, 30, 20, 10, 3, 4, 5, 6, 7, 8], maxlen=10)
-
+<br>
 ❶ maxlen 是一个可选参数，代表这个队列可以容纳的元素的数量，而且一旦设定，这个属性就不能修改了。
 
 ❷ 队列的旋转操作接受一个参数 n，当 n > 0 时，队列的最右边的n 个元素会被移动到队列的左边。当 n < 0 时，最左边的 n 个元素会被移动到右边。
@@ -399,9 +399,52 @@ deque([40, 30, 20, 10, 3, 4, 5, 6, 7, 8], maxlen=10)
 ❺ extendleft(iter) 方法会把迭代器里的元素逐个添加到双向队列的左边，因此迭代器里的元素会逆序出现在队列里。
 </pre>
 Python提供的所有队列类型：<br>
-<br>
 先进先出队列 queue.Queue<br>
 后进先出队列 queue.LifoQueue (Queue的基础上进行的封装)<br>
 优先级队列 queue.PriorityQueue (Queue的基础上进行的封装)<br>
 双向队列 queue.deque<br>
 除了上述提到的队列与双端队列,还有两个用的比较少的:后进先出队列与优先级队列<br>
+
+
+# python中定义（声明）结构体
+前言：<br>
+在Python中并无像C/C++那样的结构体类型，但是由于Python是用C编写而来的，很多东西可以互通。<br>
+Python是有struct模块，但并非是用于处理一般结构体的，并且使用起来也比较麻烦。<br>
+<br>
+实现：<br>
+我们可以使用Class类来实现一个在C/C++中呈现的结构体，也可以实现C/C++中typedef struct {}的方法。<br>
+<pre>
+'''首先定义一个类，要有__init__'''
+class SN:
+    def __init__(self):
+        self.data = ""
+        self.datalen = ""
+        self.datatype = ""
+
+'''开始初始化结构体'''
+a = SN()
+a.data = "233333"
+a.datalen = len(a.data)
+a.datatype = type(a.data)
+
+print(
+    f"a.data: {a.data}\n"
+    f"a.datalen: {a.datalen}\n"
+    f"a.datatype: {a.datatype}\n"
+)
+</pre>
+这样定义完一个类之后，已经是相当于typedef struct了<br>
+如果你不理解为什么是这样，那么我用C的写法给你写一遍你就明白了。<br>
+<pre>
+typedef struct {
+    char *data;
+    int   datalen;
+    int   datatype;
+} SN;
+
+struct SN *a = (SN *)malloc(sizeof(SN));
+a->data = "233333";
+a->datalen = strlen(a->data);
+a->datatype = 1;
+</pre>
+
