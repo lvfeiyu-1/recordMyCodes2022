@@ -467,3 +467,32 @@ Ctrl+]	            缩进代码块	                仅 Python 文件窗口可用
 Ctrl+[	            取消代码块缩进	             仅 Python 文件窗口可用
 Ctrl+F6	            重新启动 Python Shell	        仅 Python Shell 窗口可用
 </pre>
+
+
+# python深浅拷贝之坑
+<pre>
+f=[0]*10
+_f=[-1]*10
+
+print(f)
+print(_f)
+print("")
+
+# f=_f # 这样子是浅拷贝，改f会把_f也给改了
+
+# print(f)
+# print(_f)
+# print("")
+
+# f[0],f[1]=2,2
+# print(f)
+# print(_f)
+
+import copy
+f=copy.deepcopy(_f) # 深拷贝，改f不会改变_f
+
+f[0],f[1]=2,2
+print(f)
+print(_f)
+print("")
+</pre>
